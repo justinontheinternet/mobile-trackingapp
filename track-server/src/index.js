@@ -1,3 +1,9 @@
+// models are only ever required in index.js because the model instantiation lines are only expected to be run once
+// ( mongoose.model('User', userSchema); )
+// to get access to a model in another file, you grab it via mongoose (see authRoutes.js)
+// ( const mongoose = require('mongoose'); )
+// ( const User = mongoose.model('User'); )
+require('./models/User');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
