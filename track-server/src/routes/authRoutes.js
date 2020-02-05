@@ -1,8 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const User = mongoose.model('User');
 
+// need to import model because requiring User.js in multiple spots would try to define multiple models
+// User.js only gets required in index.js
+const User = mongoose.model('User');
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
