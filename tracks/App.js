@@ -8,6 +8,7 @@ import SignupScreen from './src/screens/SignupScreen';
 import TrackCreateScreen from './src/screens/TrackCreateScreen';
 import TrackDetailScreen from './src/screens/TrackDetailScreen';
 import TrackListScreen from './src/screens/TrackListScreen';
+import { Provider as AuthProvider } from './src/context/AuthContext';
 
 // this mimics the flow of our app navigators
 // case naming convention by choice differentiates screens and flows
@@ -26,4 +27,13 @@ const switchNavigator = createSwitchNavigator({
   })
 });
 
-export default createAppContainer(switchNavigator);
+// export default createAppContainer(switchNavigator);
+const App = createAppContainer(switchNavigator);
+
+export default () => {
+  return (
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  );
+};
