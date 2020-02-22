@@ -10,11 +10,13 @@ import TrackDetailScreen from './src/screens/TrackDetailScreen';
 import TrackListScreen from './src/screens/TrackListScreen';
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { setNavigator } from './src/navigationRef';
+import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
 // this mimics the flow of our app navigators
 // case naming convention by choice differentiates screens and flows
 const switchNavigator = createSwitchNavigator({
-  loginFlow: createStackNavigator({
+  ResolveAuth: ResolveAuthScreen // will show up first because it's first
+  ,loginFlow: createStackNavigator({
     Signup: SignupScreen
     ,Signin: SigninScreen
   })
@@ -26,7 +28,12 @@ const switchNavigator = createSwitchNavigator({
     ,TrackCreate: TrackCreateScreen
     ,Account: AccountScreen
   })
-});
+}
+// first screen could also be done like this
+// ,{
+//   initialRouteName: ResolveAuthScreen
+// }
+);
 
 // export default createAppContainer(switchNavigator);
 const App = createAppContainer(switchNavigator);
