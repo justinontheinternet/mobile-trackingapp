@@ -17,7 +17,7 @@ export default (shouldTrack, callback) => {
     const startWatching = async() => {
       try {
         await requestPermissionsAsync();
-        const subscriber = await watchPositionAsync(
+        subscriber = await watchPositionAsync(
           {
             accuracy: Accuracy.BestForNavigation  // more accuracy means more bettery consumption
             ,timeInterval: 1000 // once every second
