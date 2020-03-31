@@ -13,7 +13,7 @@ const locationReducer = (state, action) => {
     case 'change_name':
       return { ...state, name: action.payload };
     case 'reset':
-      console.log('reset state');
+      // console.log('reset state');
       return { ...state, name: '', locations: [] };
     default:
       return state;
@@ -43,7 +43,7 @@ const changeName = dispatch => (name) => {
 };
 
 const reset = dispatch => () => {
-  console.log('in function');
+  // console.log('in function');
   dispatch({ type: 'reset '});
 };
 
